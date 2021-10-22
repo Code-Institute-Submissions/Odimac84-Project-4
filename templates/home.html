@@ -4,9 +4,17 @@
 
 <h1>Post</h1>
 
-<ul>
+<ul class="list-group">
 {% for post in object_list %}
-    <li><a href="{% url 'blogpost' post.pk %}">{{ post.title }} </a> <strong>Written by: {{ post.author.first_name }} {{ post.author.last_name }}</strong></li>
+    <li class="list-group-item">
+        <a href="{% url 'blogpost' post.pk %}"> {{ post.title }} 
+        </a> 
+        <strong>Written by: {{ post.author.first_name }} {{ post.author.last_name }}
+        </strong> 
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-danger">Edit</a>
+        </div>
+    </li>
 
 
 {% endfor %}
