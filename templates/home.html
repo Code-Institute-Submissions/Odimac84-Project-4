@@ -12,7 +12,8 @@
         <strong>Written by: {{ post.author.first_name }} {{ post.author.last_name }}
         </strong> 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-danger">Edit</a>
+            <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
         </div>
     </li>
 
