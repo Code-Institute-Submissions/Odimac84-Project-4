@@ -2,6 +2,7 @@
 {% block title %} Share Your Thoughts {% endblock %}
 {% block content %}
 
+{% if user.is_authenticated %}
 <h1>Whats on your mind today?</h1>
 <div class="form-group">
     <form method= "POST">
@@ -12,6 +13,11 @@
 
     </form>
 </div>
+
+{% else %}
+
+
+{% endif %}
 
 
 {% endblock %}

@@ -8,13 +8,15 @@
 {% for post in object_list %}
     <li class="list-group-item">
         <a href="{% url 'blogpost' post.pk %}"> {{ post.title }} 
-        </a> 
-        <strong>Written by: {{ post.author.first_name }} {{ post.author.last_name }}
-        </strong> 
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
-            <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
-        </div>
+        </a> <br>
+        <strong>Written by: {{ post.author.first_name }} {{ post.author.last_name }} </strong> 
+         <p>Posted: {{ post.created_date}}</p> 
+         {% if user.is_authenticated %}
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
+            </div>
+        {% endif %}
     </li>
 
 
