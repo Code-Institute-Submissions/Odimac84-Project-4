@@ -10,10 +10,22 @@ class HomeView(ListView):
     template_name = 'home.html'
     ordering = ['-created_date']
 
+    def get_context_data(self, *args, **kwargs):
+        meny = Category.objects.all()
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        context["meny"] = meny
+        return context
+
 
 class PostView(DetailView):
     model = Post
     template_name = 'blogpost.html'
+
+    def get_context_data(self, *args, **kwargs):
+        meny = Category.objects.all()
+        context = super(DetailView, self).get_context_data(*args, **kwargs)
+        context["meny"] = meny
+        return context
 
 
 class Add_BlogEntry(CreateView):
@@ -41,5 +53,5 @@ class Delete_Entry(DeleteView):
 
 
 def View_By_Category(request, cats):
-    category_posts = Post.objects.filter(category=cats)
-    return render(request, 'categories.html', {'cats': cats, 'category_posts': category_posts})
+    category_posts = Post.objects.filter(category=cats.replace('-', ' '))
+    return render(request, 'categories.html', {'cats': cats.title().replace('-', ' '), 'category_posts': category_posts})

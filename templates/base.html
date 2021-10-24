@@ -24,6 +24,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Category meny -->
+                    {% if meny %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          {% for item in meny %}
+                            <li><a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</a></li>
+                          {% endfor %}
+                        </ul>
+                      </li>
+                      {% endif %}
+                      
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'add-blogentry' %}">Share Your Thoughts</a>
@@ -34,6 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'add-category' %}">Add Category</a>
                     </li>
+                    
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
