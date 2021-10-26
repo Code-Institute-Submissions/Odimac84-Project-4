@@ -4,10 +4,16 @@ from django.urls import reverse
 from datetime import datetime, date
 
 
+class NameField(models.CharField):
+    def __init__(self, *args, **kwargs):
+        super(NameField, self).__init__(*args, **kwargs)
+
+    def get_prep_value(self, value):
+        return str(value).lower()
+
 
 class Category(models.Model):
     category_name = models.CharField(max_length=50)
-
 
     def __str__(self):
         return self.category_name
@@ -21,9 +27,9 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     created_date = models.DateField(auto_now_add=True)
-    category = models.CharField(max_length=50, default='None')
+    category = NameField(max_length=50, default='None')
     likes = models.ManyToManyField(User, related_name='post_like')
-
+    
 
     def total_likes(self):
         return self.likes.count()
