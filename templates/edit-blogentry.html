@@ -2,6 +2,7 @@
 {% block title %} Edit Your Post {% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
 <h1>Changed Your Mind?</h1>
 <div class="form-group">
     <form method= "POST">
@@ -12,8 +13,12 @@
 
     </form>
 </div>
+    {% else %}
+    <h1>THIS IS NOT YOUR POST</h1>
+    
+    {% endif %}
 {% else %}
-
+<h1>THIS IS NOT YOUR POST</h1>
 {% endif %}
 
 {% endblock %}

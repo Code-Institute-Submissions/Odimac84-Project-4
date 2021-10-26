@@ -15,10 +15,12 @@
             <p>Category: <strong>{{ post.category }}</strong></p> 
              <p>Posted: {{ post.created_date}}</p> 
              {% if user.is_authenticated %}
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
-                    <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
-                </div>
+                {% if user.id == post.author.id %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
+                    </div>
+                {% endif %}
             {% endif %}
         </li>
 

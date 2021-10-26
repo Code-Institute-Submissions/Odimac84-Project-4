@@ -2,6 +2,7 @@
 {% block title %} Delete Your Post {% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
 <h1>Changed Your Mind?</h1>
 <h3>You are going to delete the following post "{{ post.title }}"</h3>
 <h3>Are you sure you want to delete this post?</h3>
@@ -14,13 +15,14 @@
     </form>
     
 </div>
+    {% else %}
+        <h1>THIS IS NOT YOUR POST</h1>
+    {% endif %}
+
+
 {% else %}
-
-
-
-
+<h1>THIS IS NOT YOUR POST</h1>
 {% endif %}
-
 {% endblock %}
 
 
