@@ -8,9 +8,25 @@
 <small>
     Written by: {{post.author.username}} {{ post.created_date}}
     {% if user.is_authenticated %}
+        
         {% if user.id == post.author.id %}
             <a href="{% url 'edit-blogentry' post.pk %}">(Edit)</a>
             <a href="{% url 'delete-entry' post.pk %}">(Delete)</a>
+        {% endif %}
+    
+        {% if liked %}
+
+        <form action="{% url 'post_like' post.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit", name="post_id", value= "{{ post.id }}" class="btn btn-danger"> UNLIKE </button> <p> {{ total_likes }} users likes this blogpost</p>
+        </form>
+
+        {% else %}
+        <form action="{% url 'post_like' post.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit", name="post_id", value= "{{ post.id }}" class="btn btn-success"> LIKE </button> <p> {{ total_likes }} users likes this blogpost</p>
+        </form>
+
         {% endif %}
     {% endif %}
 </small>
