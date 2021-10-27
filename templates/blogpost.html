@@ -7,48 +7,74 @@
 <h1>{{ post.title }}</h1>
 <small>
     Written by: {{post.author.username}} {{ post.created_date}}
-    
+
     <!-- Only registered users can use the functions of like aswell as 
     only the author will be able to delete and edit their own posts. 
     Edit and delete code is repeated in bottom for longer posts  -->
-    
-    {% if user.is_authenticated %}  
-        
-        {% if user.id == post.author.id %}
-            <a href="{% url 'edit-blogentry' post.pk %}">(Edit)</a>
-            <a href="{% url 'delete-entry' post.pk %}">(Delete)</a>
-        {% endif %}
 
-         {% if not user.id == post.author.id %} <!--cant like your own post -->
-            {% if liked %}
+    {% if user.is_authenticated %}
 
-            <form action="{% url 'post_like' post.pk %}" method="POST">
-                {% csrf_token %}
-                <button type="submit", name="post_id", value= "{{ post.id }}" class="btn btn-danger"> UNLIKE </button> <p> {{ total_likes }} users likes this blogpost</p>
-            </form>
+    {% if user.id == post.author.id %}
+    <a href="{% url 'edit-blogentry' post.pk %}">(Edit)</a>
+    <a href="{% url 'delete-entry' post.pk %}">(Delete)</a>
+    {% endif %}
 
-            {% else %}
-            <form action="{% url 'post_like' post.pk %}" method="POST">
-                {% csrf_token %}
-                <button type="submit", name="post_id", value= "{{ post.id }}" class="btn btn-success"> LIKE </button> <p> {{ total_likes }} users likes this blogpost</p>
-            </form>
+    {% if not user.id == post.author.id %}
+    <!--cant like your own post -->
+    {% if liked %}
 
-            {% endif %}
-        {% endif %}
+    <form action="{% url 'post_like' post.pk %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" , name="post_id" , value="{{ post.id }}" class="btn btn-danger"> UNLIKE </button>
+        <p> {{ total_likes }} users likes this blogpost</p>
+    </form>
+
+    {% else %}
+    <form action="{% url 'post_like' post.pk %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" , name="post_id" , value="{{ post.id }}" class="btn btn-success"> LIKE </button>
+        <p> {{ total_likes }} users likes this blogpost</p>
+    </form>
+    <hr>
+    {% endif %}
+    {% endif %}
     {% endif %}
 </small>
+
+<img class="card-img-top" src=" {{ post.blog_image.url }}">
+
 <hr>
 
 {{post.body | safe}}
 
+<hr>
+
+<!-- comment section -->
+
+<h2>Comments:</h2>
+
+        {% if not post.comments.all %}
+        Be the first one to comment. <a href="{% url 'add-comment' post.pk %}">Add comment</a>
+            {% else %}
+            <a href="{% url 'add-comment' post.pk %}">Add comment</a>
+                {% for comment in post.comments.all %}
+                    <div class="col-md-4 card mb-4  mt-3 ">
+                        <div class="card-body">
+                            <strong> {{ comment.name }} commented on {{ comment.post_date }}
+                            <hr></strong>
+                            {{ comment.body }}
+                        </div>
+                    </div>
+                {% endfor %}
+        {% endif %}
 
 <hr>
 <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
 {% if user.is_authenticated %}
-    {% if user.id == post.author.id %}
-        <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
-        <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
-    {% endif %}
+{% if user.id == post.author.id %}
+<a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
+{% endif %}
 {% endif %}
 
 {% endblock %}

@@ -16,7 +16,25 @@
     
 </div>
     {% else %}
-        <h1>THIS IS NOT YOUR POST</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 mt-3 left">
+                <div class="row">
+                    <h1>If this is your post please log in to be able to delete it.</h1> 
+                </div>
+                <div class="row">
+                    <p> If this is not your post pls login and make tour own post to be able to delete that one. </p>
+                </div>
+                <div class="row">
+                <p> If you are from CI trying out this code. This loophole has been covered. But it was a nice try.</p>
+                </div>
+                <div class="row">
+                    <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {% endif %}
 
 
