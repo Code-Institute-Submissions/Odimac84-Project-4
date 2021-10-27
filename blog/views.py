@@ -20,6 +20,7 @@ class HomeView(ListView):
     model = Post
     template_name = 'home.html'
     ordering = ['-created_date']
+    paginate_by = 6
 
     def get_context_data(self, *args, **kwargs):
         meny = Category.objects.all()

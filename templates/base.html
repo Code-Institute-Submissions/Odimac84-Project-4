@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 
@@ -7,14 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <title>{% block title %} Read My Mind {% endblock %}</title>
+        <title>{% block title %} Read My Mind {% endblock %}</title>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="d-flex flex-column h-100 main-bg push">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">Read My Mind</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -27,20 +38,21 @@
                     <!-- Category meny -->
                     {% if meny %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Categories
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          {% for item in meny %}
+                            {% for item in meny %}
                             <li><a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</a></li>
-                          {% endfor %}
+                            {% endfor %}
                         </ul>
-                      </li>
-                      {% endif %}
-                     <!-- Navbar is splitted so that it will change if you 
+                    </li>
+                    {% endif %}
+                    <!-- Navbar is splitted so that it will change if you 
                         log in and show the bits of the site that is only open for registered users. 
                         if you are not registered you will only be able to read the blog entries or 
-                        check the categories   --> 
+                        check the categories   -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'add-blogentry' %}">Share Your Thoughts</a>
@@ -51,7 +63,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'add-category' %}">Add Category</a>
                     </li>
-                    
+
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
@@ -70,12 +82,23 @@
 
         {% endblock %}
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+
+
+
+    <div class="container">
+        <footer class="footer mt-auto py-3 dark-bg ">
+        <p class="m-0 text-center text-white">Made by Code Instituters</p>
+        <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
+            <i class="fab fa-twitter-square ms-3"></i>
+            <i class="fab fa-instagram-square ms-3"></i>
+            <i class="fab fa-youtube-square ms-3"></i></p>
+    </footer>
+    </div>
 
     
+
 </body>
+
+
 
 </html>
