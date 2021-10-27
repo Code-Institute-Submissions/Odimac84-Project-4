@@ -22,3 +22,9 @@ body {
     position: sticky;
     top: 0;
 }
+
+#signout {
+    color: red;
+    border: 1px red solid;
+    background-color: #c0c5cf;
+}
