@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
 from ckeditor.fields import RichTextField
+from cloudinary.models import CloudinaryField
 
 
 class NameField(models.CharField):
@@ -26,6 +27,7 @@ class Post(models.Model):
     title = models.CharField(max_length=150)
     title_tag = models.CharField(max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    blog_image = CloudinaryField('image', null=True, blank=True)
     body = RichTextField(blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
     category = NameField(max_length=50,)
