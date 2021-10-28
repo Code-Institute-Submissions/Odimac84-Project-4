@@ -2,12 +2,12 @@
 {% block title %} Share Your Thoughts {% endblock %}
 {% block content %}
 <script>
-    CKEDITOR.replace( 'editor1' );
-  </script>
+    CKEDITOR.replace('editor1');
+</script>
 {% if user.is_authenticated %}
 <h1>Whats on your mind today?</h1>
 <div class="form-group">
-    <form method= "POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
 
@@ -21,7 +21,6 @@
 <script>
     var author_name = "{{ user.id }}";
     document.getElementById("author-id").value = author_name;
-
 </script>
 
 {% else %}
@@ -29,13 +28,13 @@
     <div class="row">
         <div class="col-12 mt-3 left">
             <div class="row">
-                <h1>To be able to post you need to sign up.</h1> 
+                <h1>To be able to post you need to sign up.</h1>
             </div>
             <div class="row">
                 <p> Please click the link to sign up. <a href="{% url 'account_signup' %}">Register</a> </p>
             </div>
             <div class="row">
-            <p> If you are from CI trying out this code. This loophole has been covered. But it was a nice try.</p>
+                <p> If you are from CI trying out this code. This loophole has been covered. But it was a nice try.</p>
             </div>
             <div class="row">
                 <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>

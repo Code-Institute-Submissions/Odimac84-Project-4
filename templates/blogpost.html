@@ -53,20 +53,20 @@
 
 <h2>Comments:</h2>
 
-        {% if not post.comments.all %}
-        Be the first one to comment. <a href="{% url 'add-comment' post.pk %}">Add comment</a>
-            {% else %}
-            <a href="{% url 'add-comment' post.pk %}">Add comment</a>
-                {% for comment in post.comments.all %}
-                    <div class="col-md-4 card mb-4  mt-3  ">
-                        <div class="card-body comment-box">
-                            <strong> {{ comment.name }} commented on {{ comment.post_date }}
-                            <hr></strong>
-                            {{ comment.body }}
-                        </div>
-                    </div>
-                {% endfor %}
-        {% endif %}
+{% if not post.comments.all %}
+Be the first one to comment. <a href="{% url 'add-comment' post.pk %}">Add comment</a>
+{% else %}
+<a href="{% url 'add-comment' post.pk %}">Add comment</a>
+{% for comment in post.comments.all %}
+<div class="col-md-4 card mb-4  mt-3  ">
+    <div class="card-body comment-box">
+        <strong> {{ comment.name }} commented on {{ comment.post_date }}
+            <hr></strong>
+        {{ comment.body }}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
 
 <hr>
 <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>

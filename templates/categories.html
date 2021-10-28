@@ -8,23 +8,23 @@
 
 <ul class="list-group">
     {% for post in category_posts %}
-        <li class="list-group-item">
-            <a href="{% url 'blogpost' post.pk %}"> {{ post.title }} 
-            </a> <br>
-            Written by: <strong>{{ post.author.first_name }} {{ post.author.last_name }} </strong>
-            <p>Category: <strong>{{ post.category }}</strong></p> 
-             <p>Posted: {{ post.created_date}}</p> 
-             {% if user.is_authenticated %}
-                {% if user.id == post.author.id %}
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
-                        <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
-                    </div>
-                {% endif %}
-            {% endif %}
-        </li>
+    <li class="list-group-item">
+        <a href="{% url 'blogpost' post.pk %}"> {{ post.title }}
+        </a> <br>
+        Written by: <strong>{{ post.author.first_name }} {{ post.author.last_name }} </strong>
+        <p>Category: <strong>{{ post.category }}</strong></p>
+        <p>Posted: {{ post.created_date}}</p>
+        {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+        {% endif %}
+        {% endif %}
+    </li>
 
-{% endfor %}
+    {% endfor %}
 </ul>
 
 

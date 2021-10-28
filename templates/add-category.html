@@ -6,7 +6,7 @@
 {% if user.is_authenticated %}
 <h1>What Category do you want to add?</h1>
 <div class="form-group">
-    <form method= "POST">
+    <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-secondary btn-lg">Add Category

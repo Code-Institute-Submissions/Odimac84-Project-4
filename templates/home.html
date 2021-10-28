@@ -6,25 +6,23 @@
 
 
 <ul class="list-group ">
-{% for post in object_list %}
+    {% for post in object_list %}
     <li class="list-group-item blog-box">
-        <a href="{% url 'blogpost' post.pk %}"> {{ post.title }} 
+        <a href="{% url 'blogpost' post.pk %}"> {{ post.title }}
         </a> <br>
         Written by: <strong>{{ post.author.username }} </strong>
-        <p>Category: <a href="{% url 'category' post.category|slugify %}"><strong>{{ post.category }}</strong></a></p> 
-         <p>Posted: {{ post.created_date}}</p> 
-         {% if user.is_authenticated %}
-            {% if user.id == post.author.id %} 
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
-                    <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
-                </div>
-            {% endif %}
-        
-        
+        <p>Category: <a href="{% url 'category' post.category|slugify %}"><strong>{{ post.category }}</strong></a></p>
+        <p>Posted: {{ post.created_date}}</p>
+        {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{% url 'edit-blogentry' post.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'delete-entry' post.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+        {% endif %}
         {% endif %}
     </li>
-{% endfor %}
+    {% endfor %}
 </ul>
 <br>
 
@@ -32,7 +30,8 @@
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
         {% if page_obj.has_previous %}
-        <li class ="small-margin"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        <li class="small-margin"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a>
+        </li>
         {% endif %}
         {% if page_obj.has_next %}
         <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
