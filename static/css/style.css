@@ -5,16 +5,12 @@ body {
 
 .blog-box {
     background-color: #c0c5cf;
+    margin-top: 10px;
 }
 
 .comment-box {
     background-color: #c0c5cf;
     color: black;
-}
-
-.push{
-    /* padding-top: 0.5rem; */
-
 }
 
 .fixed-top {
@@ -23,10 +19,7 @@ body {
     top: 0;
 }
 
-#signout {
-    color: red;
-    border: 1px red solid;
-    background-color: #c0c5cf;
+#margin-top-bottom {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-
-
