@@ -1,4 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>TEST</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                <h1>Sorry an error has accured please refresh the page or follow the link below..</h1> 
+            </div>
+            <div class="row">
+                <p>Please help yourself back to the startpage.  </p>
+            </div>
+            <div class="row">
+            <p> <a href="{% url 'home' %}" class="btn btn-secondary">Home</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}
