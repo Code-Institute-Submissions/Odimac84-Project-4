@@ -11,10 +11,10 @@ def LikeView(request, pk):
     liked = False
     if post.likes.filter(id=request.user.id).exists():
         post.likes.remove(request.user)
-        liked = False
+        liked=False
     else:
         post.likes.add(request.user)
-        liked = True
+        liked=True
     return HttpResponseRedirect(reverse('blogpost', args=[str(pk)]))
 
 
@@ -62,7 +62,7 @@ class Add_Comment(CreateView):
     model = Comment
     form_class = CommentForm
     template_name = 'add-comment.html'
-     
+    
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
