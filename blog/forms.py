@@ -23,6 +23,7 @@ class PostEntry(forms.ModelForm):
             'body': SummernoteWidget(),
         }
 
+
 class EditEntry(forms.ModelForm):
     class Meta:
         model = Post
@@ -34,6 +35,7 @@ class EditEntry(forms.ModelForm):
             'category': forms.Select(attrs={'class': 'form-control'}),
             'body': SummernoteWidget(),
         }
+
 
 class CommentForm(forms.ModelForm):
     class Meta:

@@ -22,6 +22,7 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('home')
 
+
 class Post(models.Model):
     title = models.CharField(max_length=150)
     title_tag = models.CharField(max_length=150)
@@ -32,10 +33,8 @@ class Post(models.Model):
     category = NameField(max_length=50,)
     likes = models.ManyToManyField(User, related_name='post_like')
     
-
     def total_likes(self):
         return self.likes.count()
-
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)

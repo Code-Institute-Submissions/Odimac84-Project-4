@@ -5,16 +5,18 @@ from .forms import PostEntry, EditEntry, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
+
 def LikeView(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     liked = False
     if post.likes.filter(id=request.user.id).exists():
         post.likes.remove(request.user)
-        liked=False
+        liked = False
     else:
         post.likes.add(request.user)
-        liked=True
+        liked = True
     return HttpResponseRedirect(reverse('blogpost', args=[str(pk)]))
+
 
 class HomeView(ListView):
     model = Post
@@ -60,7 +62,7 @@ class Add_Comment(CreateView):
     model = Comment
     form_class = CommentForm
     template_name = 'add-comment.html'
-    
+     
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
