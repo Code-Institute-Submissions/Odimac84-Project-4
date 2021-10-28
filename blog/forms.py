@@ -32,7 +32,7 @@ class EditEntry(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
-            'category': forms.Select(attrs={'class': 'form-control'}),
+            'category': forms.Select(choices=category_list, attrs={'class': 'form-control'}),
             'body': SummernoteWidget(),
         }
 
