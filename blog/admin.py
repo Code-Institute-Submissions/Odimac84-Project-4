@@ -8,6 +8,8 @@ class PostAdmin(SummernoteModelAdmin):
     
     summernote_fields = ('body')
 
+
 admin.site.register(Category)
+
 
 admin.site.register(Comment)

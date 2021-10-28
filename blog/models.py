@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
-from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
 
 
@@ -28,7 +27,7 @@ class Post(models.Model):
     title_tag = models.CharField(max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     blog_image = CloudinaryField('image', null=True, blank=True)
-    body = RichTextField(blank=True, null=True)
+    body = models.TextField()
     created_date = models.DateField(auto_now_add=True)
     category = NameField(max_length=50,)
     likes = models.ManyToManyField(User, related_name='post_like')
