@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} Share Your Thoughts {% endblock %}
 {% block content %}
-<script>
-    CKEDITOR.replace('editor1');
-</script>
+
 {% if user.is_authenticated %}
 <h1>Whats on your mind today?</h1>
 <div class="form-group">
