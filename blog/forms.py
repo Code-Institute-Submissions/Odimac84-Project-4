@@ -19,7 +19,7 @@ class PostEntry(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
             'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'author-id', 'type': 'hidden'}),
-            'category': forms.Select(choices=category_list, attrs={'class': 'form-control'}),
+            'category': forms.Select(category_list=category_list, attrs={'class': 'form-control'}),
             'body': SummernoteWidget(),
         }
 
@@ -32,7 +32,7 @@ class EditEntry(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
-            'category': forms.Select(choices=category_list, attrs={'class': 'form-control'}),
+            'category': forms.Select(category_list=category_list, attrs={'class': 'form-control'}),
             'body': SummernoteWidget(),
         }
 
