@@ -34,7 +34,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['project4-odimac.herokuapp.com', 'localhost']
@@ -63,7 +62,7 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-SIGNUP_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_VERIFICATION='none'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
