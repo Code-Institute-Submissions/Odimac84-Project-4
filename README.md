@@ -90,6 +90,7 @@ Me as a developer wanted to build a page where people mainly could vent out and 
 
 The app has been manully tested for all the functions that are implemented with success on all but one part. The only issue that still stands are that when a category is added the server needs to reboot for that category to show up as a choice in the blogpost. this has been looked at and no problem that explains this has been found in the code itself. But i have found a possible explaination in the type off Database that is being used, this seems to be a common problem within SQLlite3 which is the database type that is used by Heroku postgres app on their homepage.  follow the link for the information i found on the matter [Database limitations](https://devcenter.heroku.com/articles/sqlite3#disk-backed-storage). This could possibly be solved using a payed option instead but that has not been done and tested. 
 
+![picture of Database structure](assets/images/Database.jpg)
 
 Exept from that all Bugs have been worked out and i have not been able to get a bug to appear during the testing of the project.
 
