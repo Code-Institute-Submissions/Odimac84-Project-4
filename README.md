@@ -24,6 +24,18 @@ My idea starting this project was to make a Blog where anyone could share whatev
 
 i had my own ups and downs in life and one thing that allways helped me is writing, that have been my escape to get things off my chest and start working with it. so this project therefore fall quite close to my heart seeing that ive been there, and I been blogging to make things easier to break down.
 
+## Wireframes from the beginning
+
+![picture of wireframe landingpage](assets/images/Home.png)
+![picture of wireframe login](assets/images/Login.png)
+![picture of wireframe infopage](assets/images/info.png)
+![picture of wireframe memberspage](assets/images/members-page.png)
+![picture of wireframe profilepage](assets/images/My-profile.png)
+![picture of wireframe registerpage](assets/images/register.png)
+
+As my project progressed I both felt that i could not implement all i wanted and i also felt that alot off the things i thought about in the beginning would be a distracted and could take less space then originally intended. Also i found it that without having the opertunity to read the blogs without being a member then it would not be as easy if i want to go live for real with it and let people join it. So at the end of the day i decided to go for a diffrent design but still keep the concept of what my page was about. 
+
+and for the members page and profile page. Those are still there in my mind to be implemented at a later date. If they will follow the looks of the wireframes are still to be seen but i do know some of the fields i want to have there for when that project can take off. 
 
 # User experience (UX)
 ![picture of comment section](assets/images/blogentry-other.jpg)
@@ -49,10 +61,10 @@ I went for a darker theme on this site since its timeless and it will make the b
 Me as a developer wanted to build a page where people mainly could vent out and tell their story, but still safe enough that they had the control to take that off whenever they wished. Its not always that we wish for our thoughts to be on display for the entire world to see. sometimes we want to change our mind or unread our minds. 
 
 ## User ##
-![picture of blogentry input](assets/images/add-comment.jpg)
-![picture of blogentry input](assets/images/blogentry-own.jpg)
-![picture of blogentry input](assets/images/home-not-member.jpg)
-![picture of blogentry input](assets/images/signin.jpg)
+![picture of add ing a comment](assets/images/add-comment.jpg)
+![picture of your own blogpost](assets/images/blogentry-own.jpg)
+![picture of homescreen when not a member](assets/images/home-not-member.jpg)
+![picture of sign in page](assets/images/signin.jpg)
 
 
 - As a user i want to be able to create a blog that is shared with others. (Implemented)
