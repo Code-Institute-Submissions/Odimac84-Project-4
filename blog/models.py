@@ -32,7 +32,7 @@ class Post(models.Model):
     created_date = models.DateField(auto_now_add=True)
     category = NameField(max_length=50,)
     likes = models.ManyToManyField(User, related_name='post_like')
-    
+
     def total_likes(self):
         return self.likes.count()
 

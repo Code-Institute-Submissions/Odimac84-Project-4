@@ -1,4 +1,4 @@
-![picture of responsiveness]()
+![picture of responsiveness](assets/images/responsive.jpg)
 
 
 # [LINK FOR LIVE VIEW](https://project4-odimac.herokuapp.com/)
@@ -14,62 +14,90 @@
 7. Deploying to github pages
 8. Validation
 9. Tech used
-10. Media used
-11. Credits
+10. Credits
 
 
 
 
 # Introduction
-![picture of how my idea was from the start]()
+My idea starting this project was to make a Blog where anyone could share whatever they wanted, sky was supposed to be the limit. This was cause writing could be so important for some and i didnt want to limit anyone to what they could vent about.
+
+i had my own ups and downs in life and one thing that allways helped me is writing, that have been my escape to get things off my chest and start working with it. so this project therefore fall quite close to my heart seeing that ive been there, and I been blogging to make things easier to break down.
 
 
 # User experience (UX)
-![picture of comment section]()
-![picture of category selector]()
-![picture of delete entry]()
-![picture of registration]()
-![picture of logout]()
+![picture of comment section](assets/images/blogentry-other.jpg)
+![picture of category selector](assets/images/categories-drop.jpg)
+![picture of edit entry](assets/images/edit-post.jpg)
+![picture of registration](assets/images/register.jpg)
+![picture of logout](assets/images/signout.jpg)
+
+
+As seen in above pictures the registretion is easy and it wont take the user long to get started. the things asked for is kept to a bare minimum so that they can get going fast and at the same time it offers a great deal of privacy to the user. 
+
+Ive also kept it open so that you can still read and comment on blog-posts without being a member so that even if you dont want to sign up you can still interact with the authors. navigating the categories can be done either by the drop down on the top navbar or by clicking the blog post category.
 
 # Colors #
 
+![picture of page](assets/images/logged-in-home.jpg)
+![picture of blogentry input](assets/images/blog-post.jpg)
 
-![picture of page]()
-![picture of blogentry input]()
-
-
-## Possible features to add  ##
-
-
+I went for a darker theme on this site since its timeless and it will make the blog posts being the starts off the show. on the main page there is a box with a slightly darker tone then the background just to mark it out just the slightest and make it look nicer sitting there with the  short text about the page.
 
 
 # User stories
-
+Me as a developer wanted to build a page where people mainly could vent out and tell their story, but still safe enough that they had the control to take that off whenever they wished. Its not always that we wish for our thoughts to be on display for the entire world to see. sometimes we want to change our mind or unread our minds. 
 
 ## User ##
+![picture of blogentry input](assets/images/add-comment.jpg)
+![picture of blogentry input](assets/images/blogentry-own.jpg)
+![picture of blogentry input](assets/images/home-not-member.jpg)
+![picture of blogentry input](assets/images/signin.jpg)
 
 
-## Site Owner ##
+- As a user i want to be able to create a blog that is shared with others. (Implemented)
+- As a User i want to be able to like a post i read. (Implemented)
+- As a User i want to be able to style my blogpost. (Implemented)
+- As a user i want to be able to filter the blogs in categories to read only what interests me. (Implemented)
+- As a User i want to be able to add images to my blog to show what i write about. (Implemented)
+- As a user i want to be able to connect by messages to other people writing. ( Not implemented)
+- As a User i want to be able to comment on other peoples blogs. (Implemented)
+- As a User I want to be able to add a Category to my blog to show what it is about. (Implemented)
+- As a user I want to be able to edit or delete my blogs entries. (Implemented)
+- As a user i want to be able to create a blog that is shared with others. (Implemented)
+- As a user i want to be able to edit my profile for the blog. (Not implemented)
 
+## Possible features to add  ##
 
+- Message system between users
+- Replies on comments
+- Email verification on signup
+- Profile page
 
 # Testing
 
+The app has been manully tested for all the functions that are implemented with success on all but one part. The only issue that still stands are that when a category is added the server needs to reboot for that category to show up as a choice in the blogpost. this has been looked at and no problem that explains this has been found in the code itself. But i have found a possible explaination in the type off Database that is being used, this seems to be a common problem within SQLlite3 which is the database type that is used by Heroku postgres app on their homepage.  follow the link for the information i found on the matter [Database limitations](https://devcenter.heroku.com/articles/sqlite3#disk-backed-storage). This could possibly be solved using a payed option instead but that has not been done and tested. 
 
 
+Exept from that all Bugs have been worked out and i have not been able to get a bug to appear during the testing of the project.
 
-![picture of lighthouse]()
+The most major bugs that i had to deal with during this project includes the following.
 
-![picture of GTmetrix]()
+- Signup page threw a 500 error on creating a user. This was fixed by adding ACCOUNT_EMAIL_VERIFICATION = 'none' in settings so that no verification on emaiol was required.
+
+- Summernote fields on the blogpost entry wasent showing up as intended. This was tricky but simple when i got around it i just had to add the widget for it since my forms was already in widgets. 
+
+Exept from this testing i have also run the page through both lighthouse and GTmetrix and the results are shown below. 
+
+![picture of lighthouse](assets/images/lighthouse.jpg)
+
+![picture of GTmetrix](assets/images/gtmetrix.jpg)
 
 ## Further testing 
 
+When the page was seployed i went through all off the pages and tried all the functions and after the bugs had been fixed everything is in order exept from the issue with the category add function. i still left it on the site since if i would choose to work on this project after my time at CI this is a function that i want to have there and also i will add this to a payed Database and that function should work. 
 
-
-
-
-# Deploying to Heroku
-
+Both CSS and HTML has been tested so that it works and does what it is intended to do. The jigsaw showed no errors in the CSS and the HTML validator showed no major errors within the HTML at the time of testing. 
 
 
 # Validation
@@ -77,8 +105,8 @@
 
 ### Links to validation images ###
 
-- [HTML]()
-- [CSS]()
+- [pep8 first picture](assets/images/pep8num1.jpg)
+- [pep8 second picture](assets/images/pep8num2.jpg)
 
 
 # Tech used
@@ -94,22 +122,13 @@ the platform ive been deploying my code on.
 - [FontAwesome](https://fontawesome.com)
 for the socialmedia icons
      
-- [W3C Markup Validation Service](https://validator.w3.org)
-HTML validation
     
-- [CSS Validation Service](https://jigsaw.w3.org/css-validator)
+- [PEP8 Validation](http://pep8online.com/)
 CSS jigsaw validator.
     
 - [Heroku](https://heroku.com/)
 For deployment of the site and application
-    
-
-# Media
-
-- [Am I Responsive](http://ami.responsivedesign.is/)
-for the picture to show how responsive the site is on diffrent devices.
-
-    
+        
 
 # Credit
 
