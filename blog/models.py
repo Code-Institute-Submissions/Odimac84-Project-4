@@ -14,6 +14,7 @@ class NameField(models.CharField):
 
 
 class Category(models.Model):
+    # Model for Categories
     category_name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -24,6 +25,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    # Model for the Blogpost
     title = models.CharField(max_length=150)
     title_tag = models.CharField(max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -44,7 +46,9 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
+    # Model for Comments
+    post = models.ForeignKey(
+        Post, related_name="comments", on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     body = models.TextField()
     post_date = models.DateTimeField(auto_now_add=True)

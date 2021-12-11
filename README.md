@@ -112,6 +112,8 @@ When the page was deployed i went through all off the pages and tried all the fu
 
 Both CSS and HTML has been tested so that it works and does what it is intended to do. The jigsaw showed no errors in the CSS and the HTML validator showed no major errors within the HTML at the time of testing. 
 
+Deeper Testing document [here](TESTING.md)
+
 
 # Validation
  
@@ -120,6 +122,45 @@ Both CSS and HTML has been tested so that it works and does what it is intended 
 
 - [pep8 first picture](assets/images/pep8num1.jpg)
 - [pep8 second picture](assets/images/pep8num2.jpg)
+
+
+# Deploying to Heroku
+
+- First you need to have the project ready on Github.
+    - Make sure that your Creds file is in gitignore if needed
+    - Add the requirements.txt my using the command "pip3 freeze > requirements.txt"
+
+- we also need to add a Procfile with e following info in it.
+    - web: gunicorn Project4.wsgi (this will tell the app how to use the code.)
+
+
+- Now when this is set we can move on
+
+- Go onto [Heroku](https://id.heroku.com/login)
+
+- Login or create a new account if you dont have one already.
+
+- Click create new app.
+
+- Choose name for your project, and your region.
+
+- Go to setting.
+
+- Click on reveal config vars 
+    - Here you add CLOUDINARY_URL, DATABASE_URL and your secret_key
+
+- Next we add build packs
+    - we need to add python here 
+
+- Go to resources and search for Postgres, and install the Heroku Postgres
+
+- Now head over to Deploy 
+
+- Connect to github login.
+
+- Search for the repo you want by typing in your repo name. And connect to this one with the button. 
+
+- After this we click the deploy button at the bottom.
 
 
 # Tech used

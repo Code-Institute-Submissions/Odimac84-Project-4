@@ -41,7 +41,7 @@
     {% endif %}
 </small>
 
-<img class="card-img-top" src=" {{ post.blog_image.url }}">
+<img class="card-img-top" src=" {{ post.blog_image.url }}" alt= "Blogpost picture">
 
 <hr>
 
@@ -61,7 +61,8 @@ Be the first one to comment. <a href="{% url 'add-comment' post.pk %}">Add comme
 <div class="col-md-4 card mb-4  mt-3  ">
     <div class="card-body comment-box">
         <strong> {{ comment.name }} commented on {{ comment.post_date }}
-            <hr></strong>
+        </strong>
+        <hr>
         {{ comment.body }}
     </div>
 </div>
