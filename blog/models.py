@@ -17,6 +17,9 @@ class Category(models.Model):
     # Model for Categories
     category_name = models.CharField(max_length=50)
 
+    def __init__(self, *args, **kwargs):
+        super(Category, self).__init__(*args, **kwargs)
+
     def __str__(self):
         return self.category_name
 
