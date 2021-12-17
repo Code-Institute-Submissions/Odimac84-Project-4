@@ -2,34 +2,39 @@
 
 ## Navigation
 
--   Navigation has been tested and all i working as intended.
+-   Navigation has been tested and all is working as intended.
 -   If logged in you can post a blog, if not you can read and leave comments. 
--   Superusers can add ned categories from the navbar when logged in.
+-   Superusers can add new categories from the navbar when logged in.
+-   Users can login/logout or register from the navbar.
+-   Homebutton to go back to landingpage
 
 ## Homepage
-  
+
+-   Landingpage holds blogposts and have a pagination of 6 so that the page doesnt get to long.
+-   Also holds short information about the site and the purpose of the site along with reasons to signup. 
 
 ### Categories
 
 -   Categories tab can be reached from all pages and works as intended.
 -   Categories can also be clicked on the posts itself if you want to continue reading more about that subject. 
 
-## Post handle
+## Post create
 
 -   Posts are creared in its own window and can have pictures to it and usage of the summernote field. 
--   summernote field on a mobile will be moveable but follows the cursor when typing. This was the only way to keep the summernote field, which provides more UX then taking it away would do. Ive looked into changing it to CKeditor but that would give me a whole new set off problems that would land me in the same spot. This problem what ive understood is a common problem with summernote due to teh fact that the controls wont be responsive and therefore tha iframe where it lies wont scale as it should. 
+-   summernote field on a mobile will be moveable but follows the cursor when typing. This was the only way to keep the summernote field, which provides more UX then taking it away would do. Ive looked into changing it to CKeditor but that would give me a whole new set off problems that would land me in the same spot. This problem what ive understood is a common problem with summernote due to the fact that the controls wont be responsive and therefore tha iframe where it lies wont scale as it should. 
 
 ## Account
 
 -   logging in/out has been tested without any problems.
 -   Register has been tested without problems.
--  Posts made by registered user can only me edited or deleted by that user.   
+-  Posts made by registered user can only be edited or deleted by that user.   
 
-## Comments
+## Comments/likes
 
 -   Comments can be made by anyone, been tested and works as intended. 
 -   Code for this has been controlled and it is working.
--   future implementation for comments could be adding a captcha to counter bots that might spam the blogposts, but for now i want to keep the comments open for everyone even non registered users since that gives feedback to blogers. 
+-   Future implementation for comments could be adding a captcha to counter bots that might spam the blogposts, but for now i want to keep the comments open for everyone even non registered users since that gives feedback to blogers. 
+-   Likes can only be given my logged in users and can also be unliked. tested and worked as intended. 
 
 
 ## Profile
@@ -40,20 +45,19 @@
 
 ## Administrative Tools
 
--   Adding a new cathegory has been moved to only superusers due to the fact that categories can get overwhelmed quickly if anyone could add to this.     
+-   Adding a new category has been moved to only superusers due to the fact that categories can get overwhelmed quickly if anyone could add to this.     
 
 
 ## Edit/Delete
 
--   Edit and delete buttons shows up once you are logged in on your own posts. trying to get past this will give you an error message.
--   Once clicked Edit or delete you will be forwarded to a confirmation page where you get the chance to go back or proceed. 
+-   Edit and delete buttons shows up once you are logged in on your own posts. attemts to get past this will give you an error message same goes for all pages with restricted access.
+-   Once clicked edit or delete you will be forwarded to a confirmation page where you get the chance to go back or proceed. 
 
 
 ## Other
 
 -   All pages have been checked for bugs and none has been found unless they been mentioned in the above text.
   
-
 
 ## Responsiveness
 
