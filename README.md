@@ -15,6 +15,7 @@
 8. Validation
 9. Tech used
 10. Credits
+11. Updated for resubmission
 
 
 
@@ -85,20 +86,11 @@ Me as a developer wanted to build a page where people mainly could vent out and 
 - Replies on comments
 - Email verification on signup
 - Profile page
+- Captcha for comments if not verified user
 
 # Testing
 
-The app has been manully tested for all the functions that are implemented with success on all but one part. The only issue that still stands are that when a category is added the server needs to reboot for that category to show up as a choice in the blogpost. This has been looked at and no problem that explains this has been found in the code itself. But i have found a possible explaination in the type off database that is being used, this seems to be a common problem within SQLlite3 which is the database type that is used by Heroku postgres app on their homepage.  follow the link for the information i found on the matter [Database limitations](https://devcenter.heroku.com/articles/sqlite3#disk-backed-storage). This could possibly be solved using a payed option instead but that has not been done and tested. 
-
-![picture of Database structure](assets/images/Database.jpg)
-
-Exept from that all bugs have been worked out and i have not been able to get a bug to appear during the testing of the project.
-
-The most major bugs that i had to deal with during this project includes the following.
-
-- Signup page threw a 500 error on creating a user. This was fixed by adding ACCOUNT_EMAIL_VERIFICATION = 'none' in settings so that no verification on emaiol was required.
-
-- Summernote fields on the blogpost entry wasent showing up as intended. This was tricky but simple when i got around it i just had to add the widget for it since my forms was already in widgets. 
+![picture of Database structure](assets/images/Database.jpg) 
 
 Exept from this testing i have also run the page through both lighthouse and GTmetrix and the results are shown below. 
 
@@ -190,3 +182,14 @@ Framework used to build the site and application.
 Credit goes out to the slack community for helping out when needed with pointers or just cheering me on. Especially thanks to Daisy_mentor for helping me in times off need. All those calls and your eagly eyes with expirience helped me when i got stuck.
 
 Special thanks to Felipe Souza Alarcon aswell to find the time to respond to my questions and giving me tips and pointers where needed.
+
+
+# Updates for resubmission
+
+-   Categories tab in navbar is now present on all pages.
+-   Categories now updates after a new category is made.
+-   Add category is now a superuser only feature 
+-   Responsiveness has been looked at and fixed on mobiles. 
+-   Testing.MD holds the information about testing of the site.
+-   Docstrings has been added in codebase.
+-   Heroku deployment has been added to readme.md
