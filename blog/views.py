@@ -30,34 +30,24 @@ class HomeView(ListView):
     ordering = ['-created_date']
     paginate_by = 6
 
-    def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(HomeView, self).get_context_data(*args, **kwargs)
-        context["meny"] = meny
-        return context
-
 
 class PostView(DetailView):
     # View to look at the Blogpost that has been posted
     model = Post
     template_name = 'blogpost.html'
-
+    
     def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(DetailView, self).get_context_data(*args, **kwargs)
-
         likepage = get_object_or_404(Post, id=self.kwargs['pk'])
         total_likes = likepage.total_likes()
 
         liked = False
         if likepage.likes.filter(id=self.request.user.id).exists():
             liked = True
-    def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(PostView, self).get_context_data(*args, **kwargs)
-        context["meny"] = meny
-        context["total_likes"] = total_likes
-        context["liked"] = liked
+        context = {
+        "meny": meny,
+        "total_likes": total_likes,
+        "liked": liked,
+        }
         return context
 
 
@@ -67,24 +57,12 @@ class Add_BlogEntry(CreateView):
     form_class = PostEntry
     template_name = 'add-blogentry.html'
 
-    def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(Add_BlogEntry, self).get_context_data(*args, **kwargs)
-        context["meny"] = meny
-        return context
-
 
 class Add_Comment(CreateView):
     # Adding a comment on a blogpost
     model = Comment
     form_class = CommentForm
     template_name = 'add-comment.html'
-
-    def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(Add_Comment, self).get_context_data(*args, **kwargs)
-        context["meny"] = meny
-        return context
 
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
@@ -99,12 +77,6 @@ class Add_Category(CreateView):
     template_name = 'add-category.html'
     fields = '__all__'
 
-    def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(Add_Category, self).get_context_data(*args, **kwargs)
-        context["meny"] = meny
-        return context
-
 
 class Edit_BlogEntry(UpdateView):
     # Handling the edit of the blogpost
@@ -112,24 +84,12 @@ class Edit_BlogEntry(UpdateView):
     form_class = EditEntry
     template_name = 'edit-blogentry.html'
 
-    def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(Edit_BlogEntry, self).get_context_data(*args, **kwargs)
-        context["meny"] = meny
-        return context
-
 
 class Delete_Entry(DeleteView):
     # Handling the Delete of a blogpost
     model = Post
     template_name = 'delete-entry.html'
     success_url = reverse_lazy('home')
-
-    def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(Delete_Entry, self).get_context_data(*args, **kwargs)
-        context["meny"] = meny
-        return context
 
 
 def View_By_Category(request, cats):
@@ -139,8 +99,3 @@ def View_By_Category(request, cats):
         request, 'categories.html', {
             'cats': cats.title().replace('-', ' '),
             'category_posts': category_posts})
-
-    meny = Category.objects.all()
-    context = super(View_By_Category, self).get_context_data(*args, **kwargs)
-    context["meny"] = meny
-    return context
