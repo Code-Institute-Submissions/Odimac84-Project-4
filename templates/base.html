@@ -61,12 +61,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
-                        <!-- Only Superuser will be able to add category since this might get out off hand quickly otherwise.   -->
-                        {% if user.is_superuser %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'add-category' %}">Add Category</a>
-                        </li>
-                        {% endif %}
+                    <!-- Only Superuser will be able to add category since this might get out off hand quickly otherwise.   -->
+                    {% if user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add-category' %}">Add Category</a>
+                    </li>
+                    {% endif %}
 
                     {% else %}
                     <li class="nav-item">
@@ -81,7 +81,7 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container col-12 col-lg-8">
         {% block content %}
 
         {% endblock %}
@@ -90,19 +90,15 @@
 
 </body>
 
-<div class="container col-12 col-lg-8">
-    <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">Made by Code Instituters</p>
-        <p class="m-0 text-center text-white">Follow us:
-            <a href="https://www.facebook.com" target="_blank" rel="noopener"
-                aria-label="Takes you to our facebook page in a new tab"><i
-                    class="fab fa-facebook-square ms-3"></i></a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener"
-                aria-label="Takes you to our twitter in a new tab)"><i class="fab fa-twitter-square ms-3"></i></a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener"
-                aria-label="Takes you to our instagram in a new tab"><i
-                    class="fab fa-instagram-square ms-3"></i></a></p>
-    </footer>
-</div>
+<footer class="footer mt-auto py-3 dark-bg col-12 col-lg-8">
+    <p class="m-0 text-center text-white">Made by Code Instituters</p>
+    <p class="m-0 text-center text-white">Follow us:
+        <a href="https://www.facebook.com" target="_blank" rel="noopener"
+            aria-label="Takes you to our facebook page in a new tab"><i class="fab fa-facebook-square ms-3"></i></a>
+        <a href="https://www.twitter.com" target="_blank" rel="noopener"
+            aria-label="Takes you to our twitter in a new tab)"><i class="fab fa-twitter-square ms-3"></i></a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener"
+            aria-label="Takes you to our instagram in a new tab"><i class="fab fa-instagram-square ms-3"></i></a></p>
+</footer>
 
 </html>
