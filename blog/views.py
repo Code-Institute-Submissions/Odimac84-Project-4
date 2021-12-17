@@ -140,8 +140,7 @@ def View_By_Category(request, cats):
             'cats': cats.title().replace('-', ' '),
             'category_posts': category_posts})
 
-    def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(View_By_Category, self).get_context_data(*args, **kwargs)
-        context["meny"] = meny
-        return context
+    meny = Category.objects.all()
+    context = super(View_By_Category, self).get_context_data(*args, **kwargs)
+    context["meny"] = meny
+    return context
