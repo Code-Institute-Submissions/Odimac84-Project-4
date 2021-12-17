@@ -44,8 +44,8 @@ class PostView(DetailView):
         if likepage.likes.filter(id=self.request.user.id).exists():
             liked = True
         context = {
-        "total_likes": total_likes,
-        "liked": liked,
+            'total_likes': total_likes,
+            'liked': liked,
         }
         return context
 

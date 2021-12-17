@@ -1,6 +1,6 @@
 def get_meny_context(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = {
-            "meny": meny,
-        }
-        return context
+    meny = Category.objects.all()
+    context = {
+        'meny': meny,
+    }
+    return context
