@@ -4,7 +4,7 @@
 
 {% if user.is_authenticated %}
 <h1>Whats on your mind today?</h1>
-<div class="form-group col-12 col-lg-8">
+<div class="form-group">
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
