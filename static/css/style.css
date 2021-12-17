@@ -23,3 +23,12 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+#id_body_iframe{
+    width: 80%;
+}
+
+.note_editor,
+.note-toolbox {
+    width: 100vw;
+}
