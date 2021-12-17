@@ -193,3 +193,12 @@ Special thanks to Felipe Souza Alarcon aswell to find the time to respond to my 
 -   Testing.MD holds the information about testing of the site.
 -   Docstrings has been added in codebase.
 -   Heroku deployment has been added to readme.md
+
+
+
+![Flow of the site](assets/images/siteflow.jpg)
+
+Picture above shows how the site is built and how the models work together.
+Post is the Center of the site since this is what it is all about and this was the main piece that was built. on that i did hang up some extra features that was good for UX but also made to give feedback to the user.
+
+Comments and likes are the 2 features that are there to provide the user feedback and reason i keep comments open even for non registered users is that this will make it easier for anyone to provide feedback. Even if this makes the page easier targets for spam, this as said above can be countred using a captcha for non verified users in a future update of the site. 
