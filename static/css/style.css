@@ -24,10 +24,6 @@ body {
     margin-bottom: 10px;
 }
 
-#id_body_iframe{
-    width: 100%;
-}
-
 .footer {
     bottom: 0;
     width: 100%;
@@ -36,8 +32,17 @@ body {
   }
 
   @media (max-width: 991px) {
+    
+    #id_body_iframe{
+        width: 100%;
+    }
+
     .note_editor,
     .note-toolbox {
         width: 100vw;
+    }
+
+    .note_editor{
+        height: 15vh;
     }
 }
