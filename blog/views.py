@@ -35,7 +35,7 @@ class PostView(DetailView):
     # View to look at the Blogpost that has been posted
     model = Post
     template_name = 'blogpost.html'
-    
+
     def get_context_data(self, *args, **kwargs):
         likepage = get_object_or_404(Post, id=self.kwargs['pk'])
         total_likes = likepage.total_likes()
@@ -44,7 +44,6 @@ class PostView(DetailView):
         if likepage.likes.filter(id=self.request.user.id).exists():
             liked = True
         context = {
-        "meny": meny,
         "total_likes": total_likes,
         "liked": liked,
         }
