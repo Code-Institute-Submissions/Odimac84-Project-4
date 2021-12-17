@@ -7,6 +7,13 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
 
+def categoryMeny(self, *args, **kwargs):
+        meny = Category.objects.all()
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        context["meny"] = meny
+        return context
+
+
 def LikeView(request, pk):
     # Handling likes on each blogpost
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
@@ -29,12 +36,6 @@ class HomeView(ListView):
     template_name = 'home.html'
     ordering = ['-created_date']
     paginate_by = 6
-
-    def get_context_data(self, *args, **kwargs):
-        meny = Category.objects.all()
-        context = super(HomeView, self).get_context_data(*args, **kwargs)
-        context["meny"] = meny
-        return context
 
 
 class PostView(DetailView):
